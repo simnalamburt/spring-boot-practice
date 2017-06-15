@@ -7,6 +7,7 @@ repositories {
 
 dependencies {
     compile 'com.google.guava:guava:22.0'
+    compile 'com.sparkjava:spark-core:2.6.0'
 }
 
 mainClassName = 'App'
