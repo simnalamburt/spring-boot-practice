@@ -9,6 +9,8 @@ public class App {
     private static long counter = 0;
 
     public static void main(String[] args) {
+        staticFileLocation("public");
+
         get("/", (req, res) -> {
             counter += 1;
 
