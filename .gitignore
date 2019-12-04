@@ -1,5 +1,11 @@
 # Ignore build results
 /build/
+/bin/
 
 # Ignore gradle files
 /.gradle/
+
+# Ignore IDE related files
+/.classpath
+/.project
+/.settings/
