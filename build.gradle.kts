@@ -8,9 +8,9 @@ repositories {
 }
 
 dependencies {
-    compile("com.google.guava:guava:22.0")
-    compile("com.sparkjava:spark-core:2.6.0")
-    compile("com.sparkjava:spark-template-mustache:2.5.5")
+    implementation("com.google.guava:guava:28.1-jre")
+    implementation("com.sparkjava:spark-core:2.8.0")
+    implementation("com.sparkjava:spark-template-mustache:2.7.1")
 }
 
 application {
