@@ -1,6 +1,6 @@
-Spark Practice
+Spring Boot Practice
 ========
 
 ```bash
-./gradlew run
+./gradlew bootRun
 ```

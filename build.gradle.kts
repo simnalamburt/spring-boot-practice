@@ -1,6 +1,6 @@
 plugins {
     java
-    application
+    id("org.springframework.boot") version "2.2.1.RELEASE"
 }
 
 repositories {
@@ -8,11 +8,6 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.guava:guava:28.1-jre")
-    implementation("com.sparkjava:spark-core:2.8.0")
-    implementation("com.sparkjava:spark-template-mustache:2.7.1")
-}
-
-application {
-    mainClassName = "App"
+    implementation("org.springframework.boot:spring-boot-starter-web:2.2.1.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-mustache:2.2.1.RELEASE")
 }
