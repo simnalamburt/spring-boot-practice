@@ -1,15 +1,81 @@
 <!doctype html>
 <html>
 <head>
-  <title>Spark Practice</title>
-  <link href="index.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Spark Web Framework Practice</title>
+  <style>
+    body {
+      color: #222;
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    img#bear {
+      max-width: 80vw;
+      max-height: 60vh;
+    }
+
+    img#bear.roaring {
+      animation: 1s roar;
+    }
+
+    span#counter {
+      font-weight: bolder;
+    }
+
+    @keyframes roar {
+      0% {}
+      10% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 20px rgba(255, 102, 102, 0.9));
+      }
+      100% {
+        filter: drop-shadow(0 0 100px rgba(255, 102, 102, 0.0));
+      }
+    }
+  </style>
 </head>
 <body>
+  <h1>Hello, Spark Web Framework!</h1>
+  <img src="Silhouette_of_a_Bear.svg" alt="Silhouette_of_a_Bear.svg" id=bear>
+  <p>The bear has roared for <span id=counter>{{ counter }}</span> times.</p>
+  <script>
+  'use strict'
 
+  const bear = document.getElementById('bear')
+  let timeoutId
 
-<h1>ㅇㅅㅇ)/ {{ counter }}</h1>
-<p>Hello, Spark!</p>
+  bear.addEventListener('click', _ => {
+    // Animation
+    if (timeoutId == null) {
+      // No roaring is happening
 
-<script src="index.js"></script>
+      // Start roaring
+      bear.classList.add('roaring')
+    } else {
+      // Roaring is undergoing
+
+      // Remove existing timer
+      window.clearTimeout(timeoutId)
+
+      // Restart animation
+      bear.classList.remove('roaring')
+      void bear.offsetWidth
+      bear.classList.add('roaring')
+    }
+
+    // Add a new timer
+    timeoutId = window.setTimeout(_ => {
+      bear.classList.remove('roaring')
+    }, 1000)
+
+    // Update counter
+    fetch('/roar', { method: 'POST' }).then(resp => {
+      resp.text().then(counter => {
+        document.getElementById('counter').innerHTML = counter
+      })
+    })
+  })
+  </script>
 </body>
 </html>

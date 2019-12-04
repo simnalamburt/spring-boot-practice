@@ -12,12 +12,10 @@ public class App {
         staticFileLocation("public");
 
         get("/", (req, res) -> {
-            counter += 1;
-
-            return new ModelAndView(ImmutableMap.of(
-                        "counter", counter),
-                    "index.mustache");
+            return new ModelAndView(ImmutableMap.of("counter", counter), "index.mustache");
         }, new MustacheTemplateEngine());
+
+        post("/roar", (req, res) -> String.format("%d", ++counter));
 
         System.out.println("\n\nSee \u001B[33mhttp://localhost:4567\u001B[0m\n\n");
     }
