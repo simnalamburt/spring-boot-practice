@@ -2,5 +2,5 @@ Spring Boot Practice
 ========
 
 ```bash
-./gradlew bootRun
+gradle bootRun
 ```
